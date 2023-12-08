@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        terraform 'terraform-1'
-    }
 
     stages {
         stage('Git Checkout') {
@@ -11,12 +8,9 @@ pipeline {
             }
         }
 
-        stage('Terraform Version') {
+        stage('Git Version') {
             steps {
-                script {
-                    tool 'terraform-1'
-                    sh 'terraform -version'
-                }
+                sh 'git --version'
             }
         }
     }

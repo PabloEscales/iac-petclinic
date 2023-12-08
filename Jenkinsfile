@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    // tools {
-    //     terraform "terraform-1" # no lo agregue todavia
-    // }
+    tools {
+        terraform 'terraform-1'
+    }
 
     stages {
         stage('Git Checkout') {
@@ -13,14 +13,11 @@ pipeline {
 
         stage('Terraform Version') {
             steps {
-               sh label: '', script: 'terraform -version'
+                script {
+                    tool 'terraform-1'
+                    sh 'terraform -version'
+                }
             }
         }
-
-        // stage('Terraform Apply') {
-        //     steps {
-        //        sh label: '', script: 'terraform apply -auto-approve'
-        //     }
-        // }
     }
 }

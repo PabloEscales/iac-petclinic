@@ -11,16 +11,16 @@ pipeline {
             }
         }
 
-        stage('Terraform Init') {
+        stage('Terraform Version') {
             steps {
-               sh label: '', script: 'terraform init'
+               sh label: '', script: 'terraform -version'
             }
         }
 
-        stage('Terraform Apply') {
-            steps {
-               sh label: '', script: 'terraform apply -auto-approve'
-            }
-        }
+        // stage('Terraform Apply') {
+        //     steps {
+        //        sh label: '', script: 'terraform apply -auto-approve'
+        //     }
+        // }
     }
 }

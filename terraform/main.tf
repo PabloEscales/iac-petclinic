@@ -72,7 +72,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   sku_tier            = "Free"
 
   default_node_pool {
-    name       = "backend_pool"
+    name       = "backendpool"
     node_count = 3
     vm_size    = "Standard_B2s"
   }

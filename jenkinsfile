@@ -8,9 +8,12 @@ pipeline {
             }
         }
 
-        stage('Git Version') {
+        stage('Versions and T init') {
             steps {
-                sh 'git --version'
+                sh 'terraform --version'
+                dir('terraform') {
+                    sh 'terraform init'
+                }
             }
         }
     }

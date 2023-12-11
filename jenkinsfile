@@ -13,7 +13,7 @@ pipeline {
                 sh 'terraform --version'
                 dir('terraform') {
                     sh 'terraform init'
-		    sh 'terrform apply -auto-appove'
+		    sh 'terraform apply -auto-appove'
                 }
             }
         }

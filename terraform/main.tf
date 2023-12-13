@@ -13,16 +13,18 @@ terraform {
     helm = {
       source  = "hashicorp/helm"
       version = "2.12.1"
-    }
-
-   kubernetes = {
-      config_path = pathexpand("~/.kube/config")  # O ajusta la ruta según tu configuración
-    }
+    } 
   }
 }
 
 provider "azurerm" {
   features {}
+}
+
+provider "helm" {
+  kubernetes {
+    config_path = pathexpand("~/.kube/config")  # O ajusta la ruta según tu configuración
+  }
 }
 
 resource "azurerm_resource_group" "rg" {

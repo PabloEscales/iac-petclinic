@@ -23,7 +23,7 @@ provider "azurerm" {
 
 provider "helm" {
   kubernetes {
-    config_path = pathexpand("~/.kube/config")  # O ajusta la ruta según tu configuración
+    config_path = pathexpand("~/.kube/config")
   }
 }
 
